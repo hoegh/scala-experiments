@@ -1,0 +1,12 @@
+This is not as much "a" project as it is a collection of experiments and prototypes
+not quite big enough to become projects on their own yet. And that's why you should
+consult the toplevel directories to look for README files there as well.
+
+There is a wiki for this as well: 
+  http://wiki.github.com/hoegh/scala-experiments
+and that might be a good place to look as well.
+
+There is one common denominator, though, and that is that the primary language will
+be Scala ( http://www.scala-lang.org/ ). The time hasn't come for automated build
+and dependency management yet, but it might very well be some odd ant scripts 
+combined with for instance Ivy ( http://ant.apache.org/ivy/ )
