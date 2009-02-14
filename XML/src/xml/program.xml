@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:program xmlns:tns="http://www.example.org/program" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/program program.xsd ">
+	<tns:module name="top">
+		<tns:module name="somesub">
+			<tns:module name="subsub">
+				<tns:class name="AClass">
+					<tns:method name="aMethod" />
+					<tns:method name="anotherMethod" />
+				</tns:class>
+			</tns:module>
+			<tns:class name="OtherClass">
+				<tns:method name="do" />
+				<tns:method name="doMore" />
+			</tns:class>
+		</tns:module>
+		<tns:module name="othersub">
+			<tns:class name="TopClass">
+				<tns:method name="doWithStyle" />
+			</tns:class>
+		</tns:module>
+	</tns:module>
+</tns:program>
