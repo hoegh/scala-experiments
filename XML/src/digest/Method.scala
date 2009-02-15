@@ -1,12 +1,13 @@
 package digest
 
 object Method extends NodeParser[Method] {
-  def parse( node: scala.xml.Node ) = {
-    val name = (node \ "@name").text
-    new Method(name)
+  def parse( ancestor: FQName, node: scala.xml.Node ) = {
+    val name = Name(ancestor, (node \ "@name").text)
+    
+    Method(name)
   }
 }
 
-case class Method(name:String) {
+case class Method(name: Name) {
   
 }

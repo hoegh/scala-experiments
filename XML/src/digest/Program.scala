@@ -2,8 +2,8 @@ package digest
 
 object Program {
   def parse( programnode: scala.xml.Elem ) = { 
-      val modules = Module.parse( programnode \ "module" )
-      new Program( modules )
+      val modules = Module.parse( Root, programnode \ "module" )
+      Program( modules )
     } 
 }
 

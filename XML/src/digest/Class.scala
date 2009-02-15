@@ -1,14 +1,14 @@
 package digest
 
 object Class extends NodeParser[Class] {
-  def parse( node: scala.xml.Node ) = {
-      val name = (node \ "@name").text
-      val methods = Method.parse( node \ "methods")
-      new Class(name, methods)
-
+  def parse( ancestor: FQName, node: scala.xml.Node ) = {
+      val name = Name(ancestor, (node \ "@name").text)
+      val methods = Method.parse( name, node \ "methods")
+      
+      Class(name, methods)
   }
 }
 
-case class Class( name: String, methods: Set[Method]) {
+case class Class( name: Name, methods: Set[Method]) {
 
 }
