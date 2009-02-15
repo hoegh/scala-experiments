@@ -5,6 +5,6 @@ object Main {
     val filename = if (args.length>0) args(0) else "src/xml/program.xml"
     val document = scala.xml.XML.loadFile(filename)
     
-    println(document.toString)
+    println(Program.parse(document))
   }
 }
