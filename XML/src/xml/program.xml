@@ -4,18 +4,21 @@
 		<tns:module name="somesub">
 			<tns:module name="subsub">
 				<tns:class name="AClass">
-					<tns:method name="aMethod" />
-					<tns:method name="anotherMethod" />
+					<tns:method name="aMethod" returntype="top.somesub.subsub.AClass"/>
+					<tns:method name="anotherMethod" returntype="top.somesub.subsub.AClass">
+                        <tns:parameter name="input" type="top.somesub.OtherClass"/>
+                        <tns:parameter name="reference" type="top.othersub.TopClass"/>                        
+                    </tns:method>
 				</tns:class>
 			</tns:module>
 			<tns:class name="OtherClass">
-				<tns:method name="do" />
-				<tns:method name="doMore" />
+				<tns:method name="do" returntype="top.othersub.TopClass"/>
+				<tns:method name="doMore" returntype="top.somesub.subsub.AClass"/>
 			</tns:class>
 		</tns:module>
 		<tns:module name="othersub">
 			<tns:class name="TopClass">
-				<tns:method name="doWithStyle" />
+				<tns:method name="doWithStyle" returntype="top.othersub.TopClass"/>
 			</tns:class>
 		</tns:module>
 	</tns:module>

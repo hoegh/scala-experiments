@@ -9,6 +9,5 @@ object Class extends NodeParser[Class] {
   }
 }
 
-case class Class( name: Name, methods: Set[Method]) {
-
+case class Class( name: Name, methods: Set[Method]) extends Referable {
 }

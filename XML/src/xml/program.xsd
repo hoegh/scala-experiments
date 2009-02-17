@@ -1,29 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/program" xmlns:tns="http://www.example.org/program" elementFormDefault="qualified">
-	<xs:element name="program">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="module" type="tns:Module" minOccurs="0" maxOccurs="unbounded"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-
-	<xs:complexType name="Module">
-		<xs:sequence>
-			<xs:element name="module" type="tns:Module" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="class" type="tns:Class" minOccurs="0" maxOccurs="unbounded"/>		
-		</xs:sequence>
-		<xs:attribute name="name" type="xs:string"/>
-	</xs:complexType>
-
-	<xs:complexType name="Class">
-		<xs:sequence>
-			<xs:element name="method" type="tns:Method" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-		<xs:attribute name="name" type="xs:string"/>
-	</xs:complexType>
-
-	<xs:complexType name="Method">
-		<xs:attribute name="name" type="xs:string"/>
-	</xs:complexType>	
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/program"
+    xmlns:tns="http://www.example.org/program" elementFormDefault="qualified">
+    <xs:element name="program">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="module" type="tns:Module" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="Module">
+        <xs:sequence>
+            <xs:element name="module" type="tns:Module" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="class" type="tns:Class" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" />
+    </xs:complexType>
+    
+    <xs:complexType name="Class">
+        <xs:sequence>
+            <xs:element name="method" type="tns:Method" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" />
+    </xs:complexType>
+    
+    <xs:complexType name="Method">
+        <xs:sequence>
+            <xs:element name="parameter" type="tns:Parameter" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" />
+        <xs:attribute name="returntype" type="tns:ClassRef" />
+    </xs:complexType>
+    
+    <xs:complexType name="Parameter">
+        <xs:attribute name="name" type="xs:string" />
+        <xs:attribute name="type" type="tns:ClassRef" />
+    </xs:complexType>
+    
+    <xs:simpleType name="ClassRef">
+        <xs:restriction base="xs:string" />
+    </xs:simpleType>
 </xs:schema>
