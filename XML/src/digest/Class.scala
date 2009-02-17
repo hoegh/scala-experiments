@@ -3,7 +3,7 @@ package digest
 object Class extends NodeParser[Class] {
   def parse( ancestor: FQName, node: scala.xml.Node ) = {
       val name = Name(ancestor, (node \ "@name").text)
-      val methods = Method.parse( name, node \ "methods")
+      val methods = Method.parse( name, node \ "method")
       
       Class(name, methods)
   }
