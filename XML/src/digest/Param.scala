@@ -10,5 +10,5 @@ object Param extends NodeParser[Param] {
 }
 
 case class Param(name: Name, datatype: Reference) {
-  
+  override def toString = name.name + datatype
 }

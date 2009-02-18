@@ -10,4 +10,5 @@ object Class extends NodeParser[Class] {
 }
 
 case class Class( name: Name, methods: Set[Method]) extends Referable {
+  override def toString = name.name + "{\n" + methods.mkString("    ", "\n    ", "\n  }")
 }

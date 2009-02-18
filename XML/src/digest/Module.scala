@@ -12,5 +12,5 @@ object Module extends NodeParser[Module] {
 }
 
 case class Module( name: Name, submodules: Set[Module], classes: Set[Class] ) {
-  
+  override def toString = name + "\n" + submodules.mkString("", "", "")+classes.mkString("  ", "", "\n")
 }

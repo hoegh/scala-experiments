@@ -11,4 +11,5 @@ object Method extends NodeParser[Method] {
 }
 
 case class Method(name: Name, params: Set[Param], returntype: Reference) {
+    override def toString = name.name + params.mkString("(", ", ", ")")+returntype 
 }

@@ -8,5 +8,5 @@ object Program {
 }
 
 case class Program( modules : Set[Module]) {
-  
+  override def toString = modules.mkString("", "\n", "")
 }
