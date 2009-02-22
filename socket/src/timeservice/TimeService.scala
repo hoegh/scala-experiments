@@ -1,6 +1,6 @@
 package timeservice
 
-case class TimeRequest(socket: java.net.Socket)
+case class Request(socket: java.net.Socket)
 
 import scala.actors.Actor
 import java.io._
@@ -10,23 +10,29 @@ class TimeService extends Actor {
   
   def act() {
     react {
-      case TimeRequest(socket) => {
+      case Request(socket) => {
         println("Serving "+socket)
         val outstream = socket.getOutputStream()
         val out = new PrintWriter(new OutputStreamWriter(outstream))
+        val instream = socket.getInputStream()
+        val in = new BufferedReader(new InputStreamReader(instream))
         
         def printdate = {
           out.println(new java.util.Date())
           out.flush
         }
 
-        printdate
-        for( i <- 1 to 4) {
-          Thread.sleep(1000)
+        var line = in.readLine
+        while (line != null && !line.startsWith("q")) {
           printdate
+          line = in.readLine
         }
         
+        in.close
+        out.close
+        println("Closing "+socket)
         socket.close
+        
       }	
     }
   }
