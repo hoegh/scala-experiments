@@ -8,7 +8,6 @@ object TimeServer {
       println("listening")	
       val clientSocket = serverSocket.accept()
 	  val service = new TimeService
-      service.start
       service ! TimeRequest(clientSocket)	
       println("dispatched")  
     }

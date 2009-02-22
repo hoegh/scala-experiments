@@ -6,7 +6,8 @@ import scala.actors.Actor
 import java.io._
 
 class TimeService extends Actor {
-
+  start
+  
   def act() {
     react {
       case TimeRequest(socket) => {
