@@ -4,12 +4,10 @@ object TimeServer {
   val serverSocket = new java.net.ServerSocket(10000)
 
   def serve = {    
+    println("listening "+serverSocket)	
     while (true) {     	
-      println("listening")	
       val clientSocket = serverSocket.accept()
-	  val service = new TimeService
-      service ! TimeRequest(clientSocket)	
-      println("dispatched")  
+	  new TimeService ! TimeRequest(clientSocket)	
     }
   }
 }

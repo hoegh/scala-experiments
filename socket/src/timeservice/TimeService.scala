@@ -17,14 +17,15 @@ class TimeService extends Actor {
         
         def printdate = {
           out.println(new java.util.Date())
-          println("sent time to "+socket.getPort)
+          out.flush
         }
+
         printdate
         for( i <- 1 to 4) {
           Thread.sleep(1000)
           printdate
-          out.flush
         }
+        
         socket.close
       }	
     }
